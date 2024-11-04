@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keep It Confidential</title>
+    <script>
+        function decodeFromBinary() {
+            const binaryInput = document.getElementById("binaryInput").value;
+            let textOutput = "";
+            const binaryArray = binaryInput.match(/.{1,8}/g); // Split binary string into chunks of 8 bits
+
+            if (binaryArray) {
+                for (let binary of binaryArray) {
+                    textOutput += String.fromCharCode(parseInt(binary, 2)); // Convert binary to text
+                }
+            }
+
+            document.getElementById("textOutput").innerText = textOutput;
+        }
+    </script>
+
+    <style>
+        button{
+            margin: 10px;
+            background-color: rgb(21, 21, 156);
+            border-radius: 6px;
+            color: white;
+        }        
+    </style>
+</head>
+<body>
+    <h1>Decoder</h1>
+    <textarea id="binaryInput" placeholder="Enter binary to decode..." rows="4" cols="50"></textarea><br>
+    <button onclick="decodeFromBinary()">Decode</button>
+    <a href="index.html">Encode?</a> <br>
+    <a href="suprise.html">Get Reward</a>
+    <h2>Decoded Text:</h2>
+    <p id="textOutput"></p>
+</body>
+</html>

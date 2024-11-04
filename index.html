@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make It Confidential</title>
+    <script>
+        function encodeToBinary() {
+            const inputText = document.getElementById("textInput").value;
+            let binaryOutput = "";
+
+            for (let i = 0; i < inputText.length; i++) {
+                // Convert each character to binary and remove spaces
+                binaryOutput += inputText.charCodeAt(i).toString(2).padStart(8, '0');
+            }
+
+            document.getElementById("binaryOutput").innerText = binaryOutput;
+        }
+    </script>
+
+    <style>
+        button{
+            margin: 10px;
+            background-color: rgb(21, 21, 156);
+            border-radius: 6px;
+            color: white;
+        }        
+    </style>
+    
+</head>
+<body>
+    <h1>Encoder</h1>
+    <textarea id="textInput" placeholder="Enter text to encode..." rows="4" cols="50"></textarea><br>
+    <button onclick="encodeToBinary()">Encode</button>
+    <a href="decoder.html">Decode?</a><br>
+    <a href="suprise.html">Get Reward</a>
+    <h2>Output:</h2>
+    <p id="binaryOutput"></p>
+</body>
+</html>
